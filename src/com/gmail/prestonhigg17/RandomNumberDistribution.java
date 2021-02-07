@@ -7,12 +7,17 @@ public class RandomNumberDistribution
     private ArrayList<Integer> randNums = new ArrayList<Integer>();
     RandNum number = new RandNum();
 
-    public void createList()
+    public void createList(int min, int max)
     {
-        for (int index = 0; index < 10; index++)
+        for (int index = min; index < max; index++)
         {
-            randNums.add(index, number.getNextBetween(0, 9));
+            randNums.add(number.getNextBetween(min, max));
         }
+    }
+
+    public ArrayList<Integer> returnList()
+    {
+        return randNums;
     }
 
 }

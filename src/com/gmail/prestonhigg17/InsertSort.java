@@ -7,17 +7,40 @@ public class InsertSort
     private ArrayList<Integer> sortArray = new ArrayList<Integer>();
     RandNum number = new RandNum();
 
-    public void createArray(int size)
+    public void createArray(int size, int min, int max)
     {
-        for (int index = 0; index < size; index++) ;
+        sortArray.clear();
+        for (int random = 0; random < size; random++)
         {
-            sortArray.add(index, number.getNextBetween(1, 10));
+            int randomNumber = number.getNextBetween(min, max);
+            if (sortArray.isEmpty())
+            {
+                sortArray.add(randomNumber);
+            } else
+            {
+                if (randomNumber >= sortArray.get(sortArray.size() - 1))
+                {
+                    sortArray.add(randomNumber);
+                } else if (randomNumber <= sortArray.get(0))
+                {
+                    sortArray.add(0, randomNumber);
+                } else
+                {
+                    for (int index = 1; index < sortArray.size(); index++)
+                    {
+                        if (sortArray.get(index - 1) <= randomNumber && randomNumber <= sortArray.get(index))
+                        {
+                            sortArray.add(index, randomNumber);
+                            break;
+                        }
+                    }
+                }
+            }
         }
-        System.out.println(sortArray);
     }
 
-    public void insertSort()
+    public ArrayList<Integer> returnList()
     {
-
+        return sortArray;
     }
 }
