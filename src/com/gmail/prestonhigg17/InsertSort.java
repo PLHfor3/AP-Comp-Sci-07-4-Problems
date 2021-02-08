@@ -9,7 +9,6 @@ public class InsertSort
 
     public void createArray(int size, int min, int max)
     {
-        sortArray.clear();
         for (int random = 0; random < size; random++)
         {
             int randomNumber = number.getNextBetween(min, max);
@@ -42,5 +41,10 @@ public class InsertSort
     public ArrayList<Integer> returnList()
     {
         return sortArray;
+    }
+
+    public void clearArray()
+    {
+        sortArray.clear();
     }
 }

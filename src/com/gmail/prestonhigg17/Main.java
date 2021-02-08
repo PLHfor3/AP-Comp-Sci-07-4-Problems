@@ -12,6 +12,7 @@ public class Main
         RandomNumberDistribution randNums = new RandomNumberDistribution();
         InsertSort insertSort = new InsertSort();
         MedianAndMode medianAndMode = new MedianAndMode();
+        DeleteDups deleteDups = new DeleteDups();
 //        System.out.println("Welcome to the Random Number Distributor Program!\nPress enter to begin the program");
 //        pressEnterToContinue();
 //        System.out.println("Enter the Min value: ");
@@ -27,7 +28,7 @@ public class Main
 //        max = scan.nextInt();
 //        System.out.println("Enter a List Size value: ");
 //        int size = scan.nextInt();
-//        insertSort.createArray(5, 1, 7);
+        insertSort.createArray(5, 1, 7);
 //        System.out.println(Arrays.toString(insertSort.returnList().toArray(new Integer[0])));
 //        pressEnterToContinue();
 //        medianAndMode.calcMedian(insertSort.returnList());
@@ -44,8 +45,10 @@ public class Main
                 medianAndMode.returnMedian() +
                 "\nCalculating Mode...\n" +
                 modeValue);
-
-
+        pressEnterToContinue();
+        System.out.println(insertSort.returnList());
+        System.out.println("Removing Duplicated Elements...\n" +
+                "New Array: " + deleteDups.removeDups(insertSort.returnList()));
     }
 
     private static void pressEnterToContinue()
