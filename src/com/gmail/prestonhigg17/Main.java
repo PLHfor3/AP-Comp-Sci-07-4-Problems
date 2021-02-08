@@ -1,6 +1,5 @@
 package com.gmail.prestonhigg17;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,27 +11,27 @@ public class Main
         RandomNumberDistribution randNums = new RandomNumberDistribution();
         InsertSort insertSort = new InsertSort();
         MedianAndMode medianAndMode = new MedianAndMode();
-        DeleteDups deleteDups = new DeleteDups();
-//        System.out.println("Welcome to the Random Number Distributor Program!\nPress enter to begin the program");
-//        pressEnterToContinue();
-//        System.out.println("Enter the Min value: ");
-//        int min = scan.nextInt();
-//        System.out.println("Enter the Max value: ");
-//        int max = scan.nextInt();
-//        randNums.createList(min, max);
-//        System.out.println(Arrays.toString(randNums.returnList().toArray(new Integer[0])));
-//        pressEnterToContinue();
-//        System.out.println("Enter a new Min value: ");
-//        min = scan.nextInt();
-//        System.out.println("Enter a new Max value: ");
-//        max = scan.nextInt();
-//        System.out.println("Enter a List Size value: ");
-//        int size = scan.nextInt();
-        insertSort.createArray(5, 1, 7);
-//        System.out.println(Arrays.toString(insertSort.returnList().toArray(new Integer[0])));
-//        pressEnterToContinue();
-//        medianAndMode.calcMedian(insertSort.returnList());
-        medianAndMode.calcMode(new ArrayList<Integer>(Arrays.asList(1, 3, 5, 5, 7)));
+        DeleteDupes deleteDups = new DeleteDupes();
+        System.out.println("Welcome to the Random Number Distributor Program!\nPress enter to begin the program");
+        pressEnterToContinue();
+        System.out.println("Enter the Min value: ");
+        int min = scan.nextInt();
+        System.out.println("Enter the Max value: ");
+        int max = scan.nextInt();
+        randNums.createList(min, max);
+        System.out.println(Arrays.toString(randNums.returnList().toArray(new Integer[0])));
+        pressEnterToContinue();
+        System.out.println("Enter a new Min value: ");
+        min = scan.nextInt();
+        System.out.println("Enter a new Max value: ");
+        max = scan.nextInt();
+        System.out.println("Enter a List Size value: ");
+        int size = scan.nextInt();
+        insertSort.createArray(size, min, max);
+        System.out.println(Arrays.toString(insertSort.returnList().toArray(new Integer[0])));
+        pressEnterToContinue();
+        medianAndMode.calcMedian(insertSort.returnList());
+        medianAndMode.calcMode(insertSort.returnList());
         String modeValue = "";
         if (medianAndMode.returnMode() == -1)
         {

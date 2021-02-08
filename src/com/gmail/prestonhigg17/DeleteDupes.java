@@ -2,7 +2,7 @@ package com.gmail.prestonhigg17;
 
 import java.util.ArrayList;
 
-public class DeleteDups
+public class DeleteDupes
 {
     public ArrayList<Integer> removeDups(ArrayList<Integer> arrayRemove)
     {
