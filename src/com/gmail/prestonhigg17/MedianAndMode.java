@@ -26,35 +26,52 @@ public class MedianAndMode
     public void calcMode(ArrayList<Integer> calcMode)
     {
         System.out.println(calcMode);
-        int workingVar = calcMode.get(0);
-        int mostOccuredValue = workingVar;
-        int workingVarCounter = 1;
-        int mostOccuredCounter = 0;
-        for (int index = 1; index < calcMode.size() - 1; index++)
-        {
-            if (workingVar == calcMode.get(index))
-            {
-                workingVarCounter++;
-            } else
-            {
-                if (workingVarCounter > mostOccuredCounter)
-                {
-                    mostOccuredCounter = workingVarCounter;
-                    mostOccuredValue = workingVar;
+        ArrayList<Integer> values = new ArrayList<Integer>();  //the unique values
+        ArrayList<Integer> counts = new ArrayList<Integer>();  //corresponding counts
 
-                } else if (workingVarCounter == mostOccuredCounter && workingVarCounter > 1)
+        // Collect counts for each value
+        for (int valueIndex = 0; valueIndex < calcMode.size(); ++valueIndex)
+        {
+            // Only process a value once
+            if (!values.contains(calcMode.get(valueIndex)))
+            {
+                int count = 0;
+                for (int searchIndex = 0; searchIndex < calcMode.size(); ++searchIndex)
                 {
-                    mode = -1;
-                    return;
-                } else
-                {
-                    workingVar = calcMode.get(index);
-                    workingVarCounter = 1;
+                    // Count all instances of this value
+                    if (calcMode.get(searchIndex) == calcMode.get(valueIndex))
+                    {
+                        ++count;
+                    }
                 }
 
+                //Add entry to tracking arrayLists
+                values.add(calcMode.get(valueIndex));
+                counts.add(count);
             }
         }
-        mode = mostOccuredValue;
+
+        // Determine maxCount from all data
+        int maxCount = 0;
+        for (int countIndex = 0; countIndex < counts.size(); ++countIndex)
+        {
+            if (maxCount < counts.get(countIndex))
+            {
+                maxCount = counts.get(countIndex);
+            }
+        }
+
+        //Determine the mode
+        int firstIndex = counts.indexOf(maxCount); //first value that had this count
+        int lastIndex = counts.lastIndexOf(maxCount); //last value that had this count
+        if (firstIndex == lastIndex)
+        {
+            //must be unique instance to be mode (i.e. first and last index containing it has to be the same)
+            mode = values.get(firstIndex);
+        } else
+        {
+            mode = -1; // no mode
+        }
     }
 
     public double returnMedian()
